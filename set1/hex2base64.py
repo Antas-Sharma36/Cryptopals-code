@@ -5,7 +5,9 @@ import string
 ALPHABET = string.ascii_uppercase + string.ascii_lowercase + string.digits + "+" + "/"
 # print(ALPHABET)
 
-plain_text = input("Enter data to encode\n")
+# Take hex input and convert it into text format  
+hex_plain_text = input("Enter data to encode\n")
+plain_text = bytearray.fromhex(hex_plain_text).decode()
 cipher_text=""
 
 # Convert to binary
