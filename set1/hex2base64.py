@@ -7,14 +7,16 @@ ALPHABET = string.ascii_uppercase + string.ascii_lowercase + string.digits + "+"
 
 # Take hex input and convert it into text format  
 hex_plain_text = input("Enter data to encode\n")
-plain_text = bytearray.fromhex(hex_plain_text).decode()
+# plain_text = bytearray.fromhex(hex_plain_text).decode()
+plain_text = bytes.fromhex(hex_plain_text)
+print(plain_text)
 
 # Initialize cipher text and padding variable 
 cipher_text=""
 padding=0
 
 # Convert to binary
-binary_stream = "".join(format(ord(i),"08b") for i in plain_text)
+binary_stream = "".join(format(byte,"08b") for byte in plain_text)
 # print("Data in binary format is "+binary_stream)
 
 # create groups of 6 bytes and convert them back into ASCII
